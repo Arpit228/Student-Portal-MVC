@@ -1,0 +1,27 @@
+@model IEnumerable<Student_Register.Models.StudentArpit>
+
+<h1>Welcome @ViewBag.Username</h1>
+<a asp-action="AddStudent">Add Student</a>
+<table class="table">
+    <tr>
+        <th> Roll No.</th>
+        <th> Name </th>
+        <th> Course </th>
+        <th> Date of Birth </th>
+        <th></th>
+        <th> Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Rollno</td>
+            <td>@item.Name</td>
+            <td>@item.Cid</td>
+            <td>@item.Dob</td>
+            <td><a asp-action="ViewStudent" asp-route-id="@item.Rollno">View</a></td>
+            <td><a asp-action="EditStudent" asp-route-id="@item.Rollno">Edit</a></td>
+            <td><a asp-action="DeleteStudent" asp-route-id="@item.Rollno">Delete</a></td>
+        </tr>
+    }
+</table>
